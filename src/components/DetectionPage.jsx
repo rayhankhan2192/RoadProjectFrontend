@@ -8,6 +8,7 @@ function DetectionPage() {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [fullscreenImage, setFullscreenImage] = useState(null)
 
   const { detectionData, saveDetectionData, clearDetectionData } = useSession()
 
@@ -89,6 +90,14 @@ function DetectionPage() {
     setResult(null)
     setError(null)
     clearDetectionData()
+  }
+
+  const handleImageClick = (imageUrl, imageType) => {
+    setFullscreenImage({ url: imageUrl, type: imageType })
+  }
+
+  const closeFullscreen = () => {
+    setFullscreenImage(null)
   }
 
   return (
@@ -224,7 +233,7 @@ function DetectionPage() {
                       color: 'white'
                     }}>
                       <div style={{
-                        fontSize: '32px',
+                        fontSize: '24px',
                         marginBottom: '12px'
                       }}>🔄</div>
                       <div style={{
@@ -434,7 +443,7 @@ function DetectionPage() {
 
         {/* Results */}
         {result && (
-          <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ textAlign: 'center', position: 'relative' }}>
               <div style={{
                 position: 'relative',
@@ -442,7 +451,7 @@ function DetectionPage() {
                 marginBottom: '20px'
               }}>
               <h3 className="gradient-text" style={{
-                  fontSize: '48px',
+                  fontSize: '36px',
                   fontWeight: '900',
                   marginBottom: '12px',
                   margin: 0,
@@ -479,81 +488,22 @@ function DetectionPage() {
             </div>
 
             {/* Images Section */}
-            <div className="card card-large" style={{
-              position: 'relative',
-              overflow: 'hidden',
-              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
-              border: '1px solid rgba(30, 64, 175, 0.2)',
-              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+              gap: '20px',
+              marginBottom: '24px'
             }}>
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '4px',
-                background: 'linear-gradient(90deg, #1e40af, #7c3aed, #0891b2)',
-                borderRadius: '20px 20px 0 0'
-              }}></div>
-              
-              <div style={{
-                padding: '32px 0 40px 0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                marginBottom: '40px',
-                textAlign: 'center',
-                position: 'relative'
-              }}>
-                <div style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  width: '200px',
-                  height: '200px',
-                  background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
-                  borderRadius: '50%',
-                  filter: 'blur(40px)',
-                  zIndex: -1
-                }}></div>
-                <h4 className="gradient-text" style={{
-                  fontSize: '32px',
-                  fontWeight: '900',
-                  marginBottom: '16px',
-                  margin: 0,
-                  letterSpacing: '-0.01em',
-                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
-                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>
-                  Analysis Images
-                </h4>
-                <p style={{
-                  fontSize: '18px',
-                  color: '#a1a1aa',
-                  margin: 0,
-                  fontWeight: '400',
-                  letterSpacing: '0.01em'
-                }}>
-                  Original image and AI-detected damage visualization
-                </p>
-              </div>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))',
-                gap: '40px',
-                padding: '0 20px 20px 20px'
-              }}>
                 {result.image_original && (
                   <div className="card" style={{ 
                     textAlign: 'center',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                    border: '1px solid rgba(30, 64, 175, 0.2)',
-                    boxShadow: '0 12px 40px rgba(30, 64, 175, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1)',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                    background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.12), rgba(124, 58, 237, 0.12))',
+                    border: '2px solid rgba(30, 64, 175, 0.3)',
+                    boxShadow: '0 16px 50px rgba(30, 64, 175, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    borderRadius: '20px'
                   }}>
                     <div style={{
                       position: 'absolute',
@@ -604,25 +554,26 @@ function DetectionPage() {
                       </p>
                     </div>
                     
-                    <a
-                      href={`${API_CONFIG.BASE_URL}${result.image_original}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <div
+                      onClick={() => handleImageClick(`${API_CONFIG.BASE_URL}${result.image_original}`, 'Original')}
                       style={{ 
                         display: 'block', 
                         position: 'relative',
                         borderRadius: '16px',
                         overflow: 'hidden',
                         boxShadow: '0 20px 60px rgba(30, 64, 175, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)',
-                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                        cursor: 'pointer'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-8px)'
-                        e.currentTarget.style.boxShadow = '0 32px 80px rgba(30, 64, 175, 0.3), 0 16px 48px rgba(0, 0, 0, 0.4)'
+                        e.currentTarget.style.transform = 'translateY(-12px) scale(1.02)'
+                        e.currentTarget.style.boxShadow = '0 40px 100px rgba(30, 64, 175, 0.4), 0 20px 60px rgba(0, 0, 0, 0.5)'
+                        e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.5)'
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)'
-                        e.currentTarget.style.boxShadow = '0 20px 60px rgba(30, 64, 175, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)'
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                        e.currentTarget.style.boxShadow = '0 16px 50px rgba(30, 64, 175, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)'
+                        e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.3)'
                       }}
                     >
                       <img
@@ -630,7 +581,7 @@ function DetectionPage() {
                         alt="Original"
                         style={{
                           width: '100%',
-                          height: '360px',
+                          height: '320px',
                           objectFit: 'cover',
                           borderRadius: '16px',
                           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -687,8 +638,8 @@ function DetectionPage() {
                       }}
                     >
                       Click to view full size
-                      </div>
-                    </a>
+                    </div>
+                    </div>
                   </div>
                 )}
                 {result.image_detected && (
@@ -696,10 +647,11 @@ function DetectionPage() {
                     textAlign: 'center',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
-                    border: '1px solid rgba(124, 58, 237, 0.2)',
-                    boxShadow: '0 12px 40px rgba(124, 58, 237, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1)',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                    background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(8, 145, 178, 0.12))',
+                    border: '2px solid rgba(124, 58, 237, 0.3)',
+                    boxShadow: '0 16px 50px rgba(124, 58, 237, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    borderRadius: '20px'
                   }}>
                     <div style={{
                       position: 'absolute',
@@ -750,25 +702,26 @@ function DetectionPage() {
                       </p>
                     </div>
                     
-                    <a
-                      href={`${API_CONFIG.BASE_URL}${result.image_detected}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <div
+                      onClick={() => handleImageClick(`${API_CONFIG.BASE_URL}${result.image_detected}`, 'Detection Results')}
                       style={{ 
                         display: 'block', 
                         position: 'relative',
                         borderRadius: '16px',
                         overflow: 'hidden',
                         boxShadow: '0 20px 60px rgba(124, 58, 237, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)',
-                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                        cursor: 'pointer'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-8px)'
-                        e.currentTarget.style.boxShadow = '0 32px 80px rgba(124, 58, 237, 0.3), 0 16px 48px rgba(0, 0, 0, 0.4)'
+                        e.currentTarget.style.transform = 'translateY(-12px) scale(1.02)'
+                        e.currentTarget.style.boxShadow = '0 40px 100px rgba(124, 58, 237, 0.4), 0 20px 60px rgba(0, 0, 0, 0.5)'
+                        e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.5)'
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)'
-                        e.currentTarget.style.boxShadow = '0 20px 60px rgba(124, 58, 237, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)'
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                        e.currentTarget.style.boxShadow = '0 16px 50px rgba(124, 58, 237, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)'
+                        e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.3)'
                       }}
                     >
                       <img
@@ -776,7 +729,7 @@ function DetectionPage() {
                         alt="Detection Results"
                         style={{
                           width: '100%',
-                          height: '360px',
+                          height: '320px',
                           objectFit: 'cover',
                           borderRadius: '16px',
                           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -833,11 +786,10 @@ function DetectionPage() {
                       }}
                     >
                       Click to view full size
-                      </div>
-                    </a>
+                    </div>
+                    </div>
                   </div>
                 )}
-              </div>
             </div>
 
             {/* Classification Results */}
@@ -859,9 +811,9 @@ function DetectionPage() {
               }}></div>
               
               <div style={{
-                padding: '32px 0 40px 0',
+                padding: '20px 0 24px 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                marginBottom: '40px',
+                marginBottom: '24px',
                 textAlign: 'center',
                 position: 'relative'
               }}>
@@ -878,7 +830,7 @@ function DetectionPage() {
                   zIndex: -1
                 }}></div>
                 <h4 className="gradient-text" style={{
-                  fontSize: '32px',
+                  fontSize: '24px',
                   fontWeight: '900',
                   marginBottom: '16px',
                   margin: 0,
@@ -903,15 +855,15 @@ function DetectionPage() {
               </div>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '24px',
-                marginBottom: '40px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '16px',
+                marginBottom: '24px',
                 padding: '0 20px'
               }}>
                 {/* Damage Type */}
                 <div style={{
                   background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(30, 64, 175, 0.2)',
                   textAlign: 'center',
@@ -943,7 +895,7 @@ function DetectionPage() {
                     zIndex: -1
                   }}></div>
                   <div style={{ 
-                    fontSize: '48px',
+                    fontSize: '36px',
                     marginBottom: '16px',
                     filter: 'drop-shadow(0 4px 12px rgba(30, 64, 175, 0.3))',
                     animation: 'pulse 2s ease-in-out infinite'
@@ -974,7 +926,7 @@ function DetectionPage() {
                 {/* AI Confidence Score */}
                 <div style={{
                   background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(124, 58, 237, 0.2)',
                   textAlign: 'center',
@@ -1006,7 +958,7 @@ function DetectionPage() {
                     zIndex: -1
                   }}></div>
                   <div style={{ 
-                    fontSize: '48px',
+                    fontSize: '36px',
                     marginBottom: '16px',
                     filter: 'drop-shadow(0 4px 12px rgba(124, 58, 237, 0.3))'
                   }}>
@@ -1036,7 +988,7 @@ function DetectionPage() {
                 {/* Lighting Condition */}
               <div style={{
                   background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(30, 64, 175, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(8, 145, 178, 0.2)',
                   textAlign: 'center',
@@ -1068,7 +1020,7 @@ function DetectionPage() {
                     zIndex: -1
                   }}></div>
                   <div style={{ 
-                    fontSize: '48px',
+                    fontSize: '36px',
                     marginBottom: '16px',
                     filter: 'drop-shadow(0 4px 12px rgba(8, 145, 178, 0.3))'
                   }}>
@@ -1135,7 +1087,7 @@ function DetectionPage() {
                   zIndex: -1
                 }}></div>
                 <h4 className="gradient-text" style={{
-                  fontSize: '32px',
+                  fontSize: '24px',
                   fontWeight: '900',
                   marginBottom: '16px',
                   margin: 0,
@@ -1161,13 +1113,13 @@ function DetectionPage() {
 
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '24px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gap: '16px',
                 padding: '0 20px 20px 20px'
               }}>
                 <div style={{
                   background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                padding: '24px',
+                padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(30, 64, 175, 0.2)',
                   textAlign: 'center',
@@ -1199,7 +1151,7 @@ function DetectionPage() {
                     zIndex: -1
                   }}></div>
                   <span style={{ 
-                    fontSize: '32px', 
+                    fontSize: '24px', 
                     display: 'block',
                     marginBottom: '12px',
                     filter: 'drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3))'
@@ -1224,7 +1176,7 @@ function DetectionPage() {
                 </div>
                   <div style={{
                   background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(30, 64, 175, 0.2)',
                   textAlign: 'center',
@@ -1256,7 +1208,7 @@ function DetectionPage() {
                     zIndex: -1
                   }}></div>
                   <span style={{ 
-                    fontSize: '32px', 
+                    fontSize: '24px', 
                     display: 'block',
                     marginBottom: '12px',
                     filter: 'drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3))'
@@ -1281,7 +1233,7 @@ function DetectionPage() {
                   </div>
                   <div style={{
                   background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(30, 64, 175, 0.2)',
                   textAlign: 'center',
@@ -1313,7 +1265,7 @@ function DetectionPage() {
                     zIndex: -1
                   }}></div>
                   <span style={{ 
-                    fontSize: '32px', 
+                    fontSize: '24px', 
                     display: 'block',
                     marginBottom: '12px',
                     filter: 'drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3))'
@@ -1336,8 +1288,8 @@ function DetectionPage() {
                     Surface Erosion
                   </div>
                   </div>
+                </div>
               </div>
-            </div>
 
             {/* Assessment & Condition Card */}
             <div className="card card-large" style={{
@@ -1377,7 +1329,7 @@ function DetectionPage() {
                   zIndex: -1
                 }}></div>
                 <h4 className="gradient-text" style={{
-                  fontSize: '32px',
+                  fontSize: '24px',
                   fontWeight: '900',
                   marginBottom: '16px',
                   margin: 0,
@@ -1403,14 +1355,14 @@ function DetectionPage() {
 
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-                gap: '32px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '20px',
                 padding: '0 20px 20px 20px'
               }}>
-                {/* Assessment Summary */}
+              {/* Assessment Summary */}
                 <div style={{
                   background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(30, 64, 175, 0.2)',
                   borderLeft: '4px solid #3b82f6',
@@ -1429,17 +1381,17 @@ function DetectionPage() {
                     filter: 'blur(20px)',
                     zIndex: -1
                   }}></div>
-                  <h5 style={{
-                    fontSize: '20px',
+                <h5 style={{
+                  fontSize: '20px',
                     fontWeight: '700',
-                    color: 'white',
-                    marginBottom: '16px',
+                  color: 'white',
+                  marginBottom: '16px',
                     margin: 0,
                     letterSpacing: '-0.01em',
                     textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
-                  }}>
-                    Assessment Summary
-                  </h5>
+                }}>
+                  Assessment Summary
+                </h5>
                   <p style={{
                     color: '#a1a1aa',
                     lineHeight: '1.6',
@@ -1450,12 +1402,12 @@ function DetectionPage() {
                   }}>
                     {result.road_damage?.explanation}
                   </p>
-                </div>
+              </div>
 
                 {/* Road Condition Assessment */}
                 <div style={{
                   background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
-                  padding: '24px',
+                  padding: '16px',
                   borderRadius: '16px',
                   border: '1px solid rgba(124, 58, 237, 0.2)',
                   borderLeft: '4px solid #0891b2',
@@ -1474,17 +1426,17 @@ function DetectionPage() {
                     filter: 'blur(20px)',
                     zIndex: -1
                   }}></div>
-                  <h5 style={{
-                    fontSize: '20px',
+                <h5 style={{
+                  fontSize: '20px',
                     fontWeight: '700',
-                    color: 'white',
+                  color: 'white',
                     marginBottom: '16px',
                     margin: 0,
                     letterSpacing: '-0.01em',
                     textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)'
                   }}>
                     Road Condition Assessment
-                  </h5>
+                </h5>
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -1523,7 +1475,7 @@ function DetectionPage() {
                         letterSpacing: '0.01em'
                       }}>
                         Condition Score
-                      </div>
+                  </div>
                       <div style={{
                         fontSize: '20px',
                         fontWeight: '900',
@@ -1535,14 +1487,12 @@ function DetectionPage() {
                         backgroundClip: 'text'
                       }}>
                         {result.road_damage?.score}/100
-                      </div>
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
             </div>
-
-
 
             {/* Professional Report */}
             {result.road_damage?.report && (
@@ -1568,30 +1518,127 @@ function DetectionPage() {
                   filter: 'blur(20px)',
                   zIndex: -1
                 }}></div>
-                <h5 style={{
+                  <h5 style={{
                   fontSize: '18px',
                   fontWeight: '700',
-                  color: 'white',
+                    color: 'white',
                   marginBottom: '12px',
                   margin: 0,
                   letterSpacing: '-0.01em',
                   textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
-                }}>
-                  Professional Assessment Report
-                </h5>
-                <div style={{
-                  color: '#a1a1aa',
-                  lineHeight: '1.6',
-                  whiteSpace: 'pre-line',
-                  fontSize: '16px',
+                  }}>
+                    Professional Assessment Report
+                  </h5>
+                    <div style={{
+                      color: '#a1a1aa',
+                      lineHeight: '1.6',
+                      whiteSpace: 'pre-line',
+                      fontSize: '16px',
                   margin: 0,
                   fontWeight: '400',
                   letterSpacing: '0.01em'
-                }}>
-                  {result.road_damage.report}
+                    }}>
+                      {result.road_damage.report}
+                  </div>
                 </div>
+              )}
+          </div>
+        )}
+
+        {/* Fullscreen Image Modal */}
+        {fullscreenImage && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            padding: '20px'
+          }}
+          onClick={closeFullscreen}
+          >
+            <div style={{
+              position: 'relative',
+              maxWidth: '90vw',
+              maxHeight: '90vh',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+            onClick={(e) => e.stopPropagation()}
+            >
+              <div style={{
+                position: 'absolute',
+                top: '-50px',
+                right: '0',
+                background: 'rgba(0, 0, 0, 0.7)',
+                color: 'white',
+                padding: '12px 20px',
+                borderRadius: '25px',
+                fontSize: '16px',
+                fontWeight: '600',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}>
+                {fullscreenImage.type}
               </div>
-            )}
+              <img
+                src={fullscreenImage.url}
+                alt={fullscreenImage.type}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
+                }}
+              />
+              <button
+                onClick={closeFullscreen}
+                style={{
+                  position: 'absolute',
+                  top: '-50px',
+                  left: '0',
+                  background: 'rgba(239, 68, 68, 0.8)',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  fontSize: '20px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(239, 68, 68, 1)'
+                  e.target.style.transform = 'scale(1.1)'
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(239, 68, 68, 0.8)'
+                  e.target.style.transform = 'scale(1)'
+                }}
+              >
+                ✕
+              </button>
+              <div style={{
+                marginTop: '20px',
+                color: 'white',
+                fontSize: '14px',
+                opacity: 0.7,
+                textAlign: 'center'
+              }}>
+                Click anywhere to close
+              </div>
+            </div>
           </div>
         )}
       </div>
