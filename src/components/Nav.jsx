@@ -45,7 +45,7 @@ function Nav() {
               fontWeight: 'bold',
               margin: 0
             }}>
-              Road Damage AI
+              RoadXpertAI
             </h1>
             <p style={{
               fontSize: '14px',
@@ -61,6 +61,9 @@ function Nav() {
         <div style={{ display: 'flex', gap: '8px' }}>
           <NavLink to="/" currentPath={location.pathname} icon="🏠">
             Home
+          </NavLink>
+          <NavLink to="/about" currentPath={location.pathname} icon="ℹ️">
+            About
           </NavLink>
           <NavLink to="/classification" currentPath={location.pathname} icon="🔍">
             Classification

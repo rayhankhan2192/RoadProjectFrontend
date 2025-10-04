@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import LandingPage from './components/LandingPage'
 import ClassificationPage from './components/ClassificationPage'
 import DetectionPage from './components/DetectionPage'
+import AboutPage from './components/AboutPage'
 import Nav from './components/Nav'
 import { SessionProvider } from './contexts/SessionContext'
 
@@ -24,6 +25,7 @@ function AppContent() {
       <main style={{ paddingTop: '100px' }}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/classification" element={<ClassificationPage />} />
           <Route path="/detection" element={<DetectionPage />} />
         </Routes>

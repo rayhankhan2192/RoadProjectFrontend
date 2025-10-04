@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function LandingPage() {
   return (
-    <div style={{ minHeight: '100vh' }}>
+    <div className="crystal-dark" style={{ minHeight: '100vh' }}>
       {/* Hero Section */}
       <section style={{
         minHeight: '100vh',
@@ -19,12 +19,7 @@ function LandingPage() {
           left: 0,
           right: 0,
           bottom: 0,
-          background: `
-            radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(8, 145, 178, 0.1) 0%, transparent 50%),
-            linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 50%, var(--dark-lighter) 100%)
-          `,
+          background: '#0a0a0a',
           animation: 'float 20s ease-in-out infinite'
         }}></div>
 
@@ -241,7 +236,7 @@ function LandingPage() {
           marginBottom: '80px'
         }}>
           {/* Feature 1 */}
-          <div className="card slide-up" style={{
+          <div className="card crystal-card crystal-glow slide-up" style={{
             textAlign: 'center',
             padding: '40px 32px',
             position: 'relative'
@@ -280,7 +275,7 @@ function LandingPage() {
           </div>
 
           {/* Feature 2 */}
-          <div className="card slide-up" style={{
+          <div className="card crystal-card crystal-glow slide-up" style={{
             textAlign: 'center',
             padding: '40px 32px',
             position: 'relative'
@@ -319,7 +314,7 @@ function LandingPage() {
           </div>
 
           {/* Feature 3 */}
-          <div className="card slide-up" style={{
+          <div className="card crystal-card crystal-glow slide-up" style={{
             textAlign: 'center',
             padding: '40px 32px',
             position: 'relative'
@@ -637,7 +632,7 @@ function LandingPage() {
             marginBottom: '32px'
           }}>
             <Link
-              to="/"
+              to="/classification"
               style={{
                 color: '#a1a1aa',
                 textDecoration: 'none',
@@ -649,6 +644,20 @@ function LandingPage() {
               onMouseLeave={(e) => e.target.style.color = '#a1a1aa'}
             >
               Classification
+            </Link>
+            <Link
+              to="/about"
+              style={{
+                color: '#a1a1aa',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                transition: 'color 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.target.style.color = 'white'}
+              onMouseLeave={(e) => e.target.style.color = '#a1a1aa'}
+            >
+              About
             </Link>
             <Link
               to="/detection"

@@ -101,7 +101,7 @@ function DetectionPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', padding: '20px', display: 'flex', flexDirection: 'column' }}>
+    <div className="crystal-dark" style={{ minHeight: '100vh', padding: '20px', display: 'flex', flexDirection: 'column' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', flex: 1, display: 'flex', flexDirection: 'column' }}>
         {/* Header */}
         <div className="fade-in" style={{ 
@@ -114,13 +114,14 @@ function DetectionPage() {
             display: 'inline-block',
             marginBottom: '16px'
           }}>
-            <h2 className="gradient-text" style={{
+            <h2 style={{
               fontSize: '40px',
               fontWeight: '900',
               marginBottom: '8px',
               margin: 0,
               letterSpacing: '-0.02em',
-              textShadow: '0 4px 20px rgba(30, 64, 175, 0.3)'
+              color: '#ffffff',
+              textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)'
             }}>
               AI Detection System
             </h2>
@@ -131,7 +132,7 @@ function DetectionPage() {
               transform: 'translateX(-50%)',
               width: '120px',
               height: '4px',
-              background: 'linear-gradient(90deg, transparent, #1e40af, transparent)',
+              background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
               borderRadius: '2px',
               animation: 'pulse 2s ease-in-out infinite'
             }}></div>
@@ -151,7 +152,7 @@ function DetectionPage() {
         </div>
 
         {/* Upload Section */}
-        <div className="card card-large slide-up" style={{ 
+        <div className="card crystal-card crystal-glow card-large slide-up" style={{ 
           marginBottom: '20px',
           position: 'relative',
           overflow: 'hidden',
@@ -163,7 +164,7 @@ function DetectionPage() {
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #1e40af, #7c3aed, #0891b2)',
+            background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1))',
             borderRadius: '20px 20px 0 0'
           }}></div>
           
@@ -405,7 +406,7 @@ function DetectionPage() {
                     height: '40px',
                     fontSize: '14px',
                     fontWeight: '600',
-                    background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
                     boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)'
                   }}
                 >
@@ -450,17 +451,14 @@ function DetectionPage() {
                 display: 'inline-block',
                 marginBottom: '20px'
               }}>
-              <h3 className="gradient-text" style={{
+              <h3 style={{
                   fontSize: '36px',
                   fontWeight: '900',
                   marginBottom: '12px',
                   margin: 0,
                   letterSpacing: '-0.02em',
-                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
-                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  color: '#ffffff',
+                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.4)'
               }}>
                 Detection Results
               </h3>
@@ -471,7 +469,7 @@ function DetectionPage() {
                   transform: 'translateX(-50%)',
                   width: '140px',
                   height: '4px',
-                  background: 'linear-gradient(90deg, transparent, #1e40af, #7c3aed, #0891b2, transparent)',
+                  background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1), transparent)',
                   borderRadius: '2px',
                   animation: 'pulse 2s ease-in-out infinite'
                 }}></div>
@@ -495,15 +493,15 @@ function DetectionPage() {
               marginBottom: '24px'
             }}>
                 {result.image_original && (
-                  <div className="card" style={{ 
+                  <div className="card crystal-card crystal-glow" style={{ 
                     textAlign: 'center',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.12), rgba(124, 58, 237, 0.12))',
-                    border: '2px solid rgba(30, 64, 175, 0.3)',
-                    boxShadow: '0 16px 50px rgba(30, 64, 175, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)',
+                    background: 'rgba(0, 0, 0, 0.6)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 12px 40px rgba(0, 0, 0, 0.6)',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    borderRadius: '20px'
+                    borderRadius: '24px'
                   }}>
                     <div style={{
                       position: 'absolute',
@@ -511,7 +509,7 @@ function DetectionPage() {
                       left: 0,
                       right: 0,
                       height: '4px',
-                      background: 'linear-gradient(90deg, #1e40af, #7c3aed)',
+                      background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
                       borderRadius: '12px 12px 0 0'
                     }}></div>
                     
@@ -643,15 +641,15 @@ function DetectionPage() {
                   </div>
                 )}
                 {result.image_detected && (
-                  <div className="card" style={{ 
+                  <div className="card crystal-card crystal-glow" style={{ 
                     textAlign: 'center',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(8, 145, 178, 0.12))',
-                    border: '2px solid rgba(124, 58, 237, 0.3)',
-                    boxShadow: '0 16px 50px rgba(124, 58, 237, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)',
+                    background: 'rgba(0, 0, 0, 0.6)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 12px 40px rgba(0, 0, 0, 0.6)',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    borderRadius: '20px'
+                    borderRadius: '24px'
                   }}>
                     <div style={{
                       position: 'absolute',
@@ -659,7 +657,7 @@ function DetectionPage() {
                       left: 0,
                       right: 0,
                       height: '4px',
-                      background: 'linear-gradient(90deg, #7c3aed, #0891b2)',
+                      background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
                       borderRadius: '12px 12px 0 0'
                     }}></div>
                     
@@ -793,12 +791,12 @@ function DetectionPage() {
             </div>
 
             {/* Classification Results */}
-            <div className="card card-large" style={{
+            <div className="card crystal-card crystal-glow card-large" style={{
               position: 'relative',
               overflow: 'hidden',
-              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
-              border: '1px solid rgba(30, 64, 175, 0.2)',
-              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
+              background: 'rgba(0, 0, 0, 0.6)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: '0 25px 80px rgba(0, 0, 0, 0.8), 0 15px 50px rgba(0, 0, 0, 0.6)'
             }}>
               <div style={{
                 position: 'absolute',
@@ -806,7 +804,7 @@ function DetectionPage() {
                 left: 0,
                 right: 0,
                 height: '4px',
-                background: 'linear-gradient(90deg, #1e40af, #7c3aed, #0891b2)',
+                background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1))',
                 borderRadius: '20px 20px 0 0'
               }}></div>
               
@@ -829,17 +827,14 @@ function DetectionPage() {
                   filter: 'blur(40px)',
                   zIndex: -1
                 }}></div>
-                <h4 className="gradient-text" style={{
+                <h4 style={{
                   fontSize: '24px',
                   fontWeight: '900',
                   marginBottom: '16px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
-                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  color: '#ffffff',
+                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)'
                 }}>
                   AI Classification
                 </h4>
@@ -861,16 +856,17 @@ function DetectionPage() {
                 padding: '0 20px'
               }}>
                 {/* Damage Type */}
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)'
@@ -905,18 +901,19 @@ function DetectionPage() {
                   <h6 style={{
                     fontSize: '18px',
                     fontWeight: '700',
-                    color: '#a1a1aa',
+                    color: '#ffffff',
                     marginBottom: '8px',
                     margin: 0,
-                    letterSpacing: '0.01em'
+                    letterSpacing: '0.01em',
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.2)'
                   }}>
                     Damage Type
                   </h6>
                   <div style={{
                       fontSize: '24px',
                     fontWeight: '900',
-                      color: 'white',
-                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)',
+                      color: '#ffffff',
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
                     letterSpacing: '-0.01em'
                     }}>
                       {result.prediction?.class}
@@ -924,26 +921,27 @@ function DetectionPage() {
                 </div>
 
                 {/* AI Confidence Score */}
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(124, 58, 237, 0.2)',
+                <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)'
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(124, 58, 237, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
-                  e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.4)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(30, 64, 175, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.4)'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(124, 58, 237, 0.1)'
-                  e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.2)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(30, 64, 175, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.2)'
                 }}>
                   <div style={{
                     position: 'absolute',
@@ -952,7 +950,7 @@ function DetectionPage() {
                     transform: 'translate(-50%, -50%)',
                     width: '120px',
                     height: '120px',
-                    background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
                     borderRadius: '50%',
                     filter: 'blur(20px)',
                     zIndex: -1
@@ -960,25 +958,26 @@ function DetectionPage() {
                   <div style={{ 
                     fontSize: '36px',
                     marginBottom: '16px',
-                    filter: 'drop-shadow(0 4px 12px rgba(124, 58, 237, 0.3))'
+                    filter: 'drop-shadow(0 4px 12px rgba(30, 64, 175, 0.3))'
                   }}>
                     🎯
                   </div>
                   <h6 style={{
                     fontSize: '18px',
                     fontWeight: '700',
-                    color: '#a1a1aa',
+                    color: '#ffffff',
                     marginBottom: '8px',
                     margin: 0,
-                    letterSpacing: '0.01em'
+                    letterSpacing: '0.01em',
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.2)'
                   }}>
                     AI Confidence
                   </h6>
                   <div style={{
                     fontSize: '24px',
                     fontWeight: '900',
-                    color: 'white',
-                    textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)',
+                    color: '#ffffff',
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
                     letterSpacing: '-0.01em'
                   }}>
                     {result.prediction?.confidence?.toFixed(1)}%
@@ -986,26 +985,27 @@ function DetectionPage() {
               </div>
 
                 {/* Lighting Condition */}
-              <div style={{
-                  background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(30, 64, 175, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(8, 145, 178, 0.2)',
+              <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)'
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(8, 145, 178, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
-                  e.currentTarget.style.borderColor = 'rgba(8, 145, 178, 0.4)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(30, 64, 175, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.4)'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(8, 145, 178, 0.1)'
-                  e.currentTarget.style.borderColor = 'rgba(8, 145, 178, 0.2)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(30, 64, 175, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.2)'
                 }}>
                   <div style={{
                     position: 'absolute',
@@ -1014,7 +1014,7 @@ function DetectionPage() {
                     transform: 'translate(-50%, -50%)',
                     width: '120px',
                     height: '120px',
-                    background: 'radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
                     borderRadius: '50%',
                     filter: 'blur(20px)',
                     zIndex: -1
@@ -1022,25 +1022,26 @@ function DetectionPage() {
                   <div style={{ 
                     fontSize: '36px',
                     marginBottom: '16px',
-                    filter: 'drop-shadow(0 4px 12px rgba(8, 145, 178, 0.3))'
+                    filter: 'drop-shadow(0 4px 12px rgba(30, 64, 175, 0.3))'
                   }}>
                     ☀️
                   </div>
                   <h6 style={{
                     fontSize: '18px',
                     fontWeight: '700',
-                    color: '#a1a1aa',
+                    color: '#ffffff',
                     marginBottom: '8px',
                     margin: 0,
-                    letterSpacing: '0.01em'
+                    letterSpacing: '0.01em',
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.2)'
                   }}>
                     Lighting Condition
                   </h6>
                   <div style={{
                     fontSize: '24px',
                     fontWeight: '900',
-                    color: 'white',
-                    textShadow: '0 2px 8px rgba(8, 145, 178, 0.3)',
+                    color: '#ffffff',
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)',
                     letterSpacing: '-0.01em'
                   }}>
                     {result.prediction?.lighting}
@@ -1050,12 +1051,12 @@ function DetectionPage() {
             </div>
 
             {/* Damage Statistics */}
-            <div className="card card-large" style={{
+            <div className="card crystal-card crystal-glow card-large" style={{
               position: 'relative',
               overflow: 'hidden',
-              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
-              border: '1px solid rgba(30, 64, 175, 0.2)',
-              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
+              background: 'rgba(0, 0, 0, 0.6)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: '0 25px 80px rgba(0, 0, 0, 0.8), 0 15px 50px rgba(0, 0, 0, 0.6)'
             }}>
               <div style={{
                 position: 'absolute',
@@ -1063,7 +1064,7 @@ function DetectionPage() {
                 left: 0,
                 right: 0,
                 height: '4px',
-                background: 'linear-gradient(90deg, #1e40af, #7c3aed, #0891b2)',
+                background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1))',
                 borderRadius: '20px 20px 0 0'
               }}></div>
               
@@ -1086,17 +1087,14 @@ function DetectionPage() {
                   filter: 'blur(40px)',
                   zIndex: -1
                 }}></div>
-                <h4 className="gradient-text" style={{
+                <h4 style={{
                   fontSize: '24px',
                   fontWeight: '900',
                   marginBottom: '16px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
-                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  color: '#ffffff',
+                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)'
                 }}>
                   Damage Statistics
                 </h4>
@@ -1117,16 +1115,17 @@ function DetectionPage() {
                 gap: '16px',
                 padding: '0 20px 20px 20px'
               }}>
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)'
@@ -1159,31 +1158,33 @@ function DetectionPage() {
                   <div style={{
                     fontSize: '28px',
                     fontWeight: '900',
-                    color: 'white',
+                    color: '#ffffff',
                     marginBottom: '8px',
-                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                   }}>
                     {result.road_damage?.damage_summary?.potholes || 0}
                   </div>
                   <div style={{
-                    color: '#a1a1aa',
+                    color: '#ffffff',
                     fontSize: '14px',
                     fontWeight: '600',
-                    letterSpacing: '0.01em'
+                    letterSpacing: '0.01em',
+                    textShadow: '0 2px 4px rgba(255, 255, 255, 0.2)'
                   }}>
                     Potholes Detected
                 </div>
                 </div>
-                  <div style={{
-                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)'
@@ -1216,31 +1217,33 @@ function DetectionPage() {
                   <div style={{
                     fontSize: '28px',
                     fontWeight: '900',
-                    color: 'white',
+                    color: '#ffffff',
                     marginBottom: '8px',
-                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                   }}>
                     {result.road_damage?.damage_summary?.cracks || 0}
                   </div>
                   <div style={{
-                    color: '#a1a1aa',
+                    color: '#ffffff',
                     fontSize: '14px',
                     fontWeight: '600',
-                    letterSpacing: '0.01em'
+                    letterSpacing: '0.01em',
+                    textShadow: '0 2px 4px rgba(255, 255, 255, 0.2)'
                   }}>
                     Cracks Found
                   </div>
                   </div>
-                  <div style={{
-                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   textAlign: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  backdropFilter: 'blur(20px)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)'
@@ -1273,17 +1276,18 @@ function DetectionPage() {
                   <div style={{
                     fontSize: '28px',
                     fontWeight: '900',
-                    color: 'white',
+                    color: '#ffffff',
                     marginBottom: '8px',
-                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                   }}>
                     {result.road_damage?.damage_summary?.surface_erosion || 0}
                   </div>
                   <div style={{
-                    color: '#a1a1aa',
+                    color: '#ffffff',
                     fontSize: '14px',
                     fontWeight: '600',
-                    letterSpacing: '0.01em'
+                    letterSpacing: '0.01em',
+                    textShadow: '0 2px 4px rgba(255, 255, 255, 0.2)'
                   }}>
                     Surface Erosion
                   </div>
@@ -1292,12 +1296,12 @@ function DetectionPage() {
               </div>
 
             {/* Assessment & Condition Card */}
-            <div className="card card-large" style={{
+            <div className="card crystal-card crystal-glow card-large" style={{
               position: 'relative',
               overflow: 'hidden',
-              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
-              border: '1px solid rgba(30, 64, 175, 0.2)',
-              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
+              background: 'rgba(0, 0, 0, 0.6)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: '0 25px 80px rgba(0, 0, 0, 0.8), 0 15px 50px rgba(0, 0, 0, 0.6)'
             }}>
               <div style={{
                 position: 'absolute',
@@ -1305,7 +1309,7 @@ function DetectionPage() {
                 left: 0,
                 right: 0,
                 height: '4px',
-                background: 'linear-gradient(90deg, #1e40af, #7c3aed, #0891b2)',
+                background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1))',
                 borderRadius: '20px 20px 0 0'
               }}></div>
               
@@ -1328,17 +1332,14 @@ function DetectionPage() {
                   filter: 'blur(40px)',
                   zIndex: -1
                 }}></div>
-                <h4 className="gradient-text" style={{
+                <h4 style={{
                   fontSize: '24px',
                   fontWeight: '900',
                   marginBottom: '16px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
-                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
+                  color: '#ffffff',
+                  textShadow: '0 4px 20px rgba(255, 255, 255, 0.3)'
                 }}>
                   Assessment & Condition
                 </h4>
@@ -1360,14 +1361,15 @@ function DetectionPage() {
                 padding: '0 20px 20px 20px'
               }}>
               {/* Assessment Summary */}
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   borderLeft: '4px solid #3b82f6',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  backdropFilter: 'blur(20px)'
                 }}>
                   <div style={{
                     position: 'absolute',
@@ -1384,11 +1386,11 @@ function DetectionPage() {
                 <h5 style={{
                   fontSize: '20px',
                     fontWeight: '700',
-                  color: 'white',
+                  color: '#ffffff',
                   marginBottom: '16px',
                     margin: 0,
                     letterSpacing: '-0.01em',
-                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                 }}>
                   Assessment Summary
                 </h5>
@@ -1405,14 +1407,15 @@ function DetectionPage() {
               </div>
 
                 {/* Road Condition Assessment */}
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  border: '1px solid rgba(124, 58, 237, 0.2)',
+                <div className="crystal-card crystal-glow" style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  padding: '20px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(124, 58, 237, 0.3)',
                   borderLeft: '4px solid #0891b2',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  backdropFilter: 'blur(20px)'
                 }}>
                   <div style={{
                     position: 'absolute',
@@ -1429,11 +1432,11 @@ function DetectionPage() {
                 <h5 style={{
                   fontSize: '20px',
                     fontWeight: '700',
-                  color: 'white',
+                  color: '#ffffff',
                     marginBottom: '16px',
                     margin: 0,
                     letterSpacing: '-0.01em',
-                    textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)'
+                    textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                   }}>
                     Road Condition Assessment
                 </h5>
@@ -1469,22 +1472,19 @@ function DetectionPage() {
                     <div style={{ textAlign: 'right' }}>
                       <div style={{
                         fontSize: '14px',
-                        color: '#a1a1aa',
+                        color: '#ffffff',
                         marginBottom: '4px',
                         fontWeight: '600',
-                        letterSpacing: '0.01em'
+                        letterSpacing: '0.01em',
+                        textShadow: '0 2px 4px rgba(255, 255, 255, 0.2)'
                       }}>
                         Condition Score
                   </div>
                       <div style={{
                         fontSize: '20px',
                         fontWeight: '900',
-                        color: 'white',
-                        textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)',
-                        background: 'linear-gradient(135deg, #7c3aed, #0891b2)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text'
+                        color: '#ffffff',
+                        textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                       }}>
                         {result.road_damage?.score}/100
                     </div>
@@ -1496,15 +1496,16 @@ function DetectionPage() {
 
             {/* Professional Report */}
             {result.road_damage?.report && (
-              <div style={{
-                background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
-                padding: '20px 24px',
-                borderRadius: '12px',
-                border: '1px solid rgba(30, 64, 175, 0.2)',
+              <div className="crystal-card crystal-glow" style={{
+                background: 'rgba(0, 0, 0, 0.5)',
+                padding: '24px 28px',
+                borderRadius: '20px',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 borderLeft: '4px solid #3b82f6',
                 marginBottom: '32px',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                backdropFilter: 'blur(20px)'
               }}>
                 <div style={{
                   position: 'absolute',
@@ -1521,11 +1522,11 @@ function DetectionPage() {
                   <h5 style={{
                   fontSize: '18px',
                   fontWeight: '700',
-                    color: 'white',
+                    color: '#ffffff',
                   marginBottom: '12px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                  textShadow: '0 2px 8px rgba(255, 255, 255, 0.3)'
                   }}>
                     Professional Assessment Report
                   </h5>

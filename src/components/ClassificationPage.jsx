@@ -92,7 +92,7 @@ function ClassificationPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', padding: '20px', display: 'flex', flexDirection: 'column' }}>
+    <div className="crystal-dark" style={{ minHeight: '100vh', padding: '20px', display: 'flex', flexDirection: 'column' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', flex: 1, display: 'flex', flexDirection: 'column' }}>
         {/* Header */}
         <div className="fade-in" style={{ 
@@ -142,7 +142,7 @@ function ClassificationPage() {
         </div>
 
         {/* Upload Section */}
-        <div className="card card-large slide-up" style={{ 
+        <div className="card crystal-card crystal-glow card-large slide-up" style={{ 
           marginBottom: '20px',
           position: 'relative',
           overflow: 'hidden',
