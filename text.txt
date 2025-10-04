@@ -1,0 +1,34 @@
+classification url: @http://127.0.0.1:8000/api/predict-classification 
+response: 
+{
+    "prediction": "Pothole",
+    "confidence": 99.9800033569336,
+    "lighting": "Moderate Light",
+    "image_url": "/media/uploads/pothole_3.jpg"
+}
+
+detection url: http://127.0.0.1:8000/api/detect_damage
+
+response:  
+{
+    "prediction": {
+        "class": "Pothole",
+        "confidence": 99.9800033569336,
+        "lighting": "Moderate Light"
+    },
+    "road_damage": {
+        "prompt": "Detected road damage: - Potholes: 7 Overall road condition is rated as: Very Poor. Write a short, professional report summarizing the road damage condition for municipal assessment. Use clear, non-technical language.",
+        "report": "Subject: Road Condition Assessment Report A recent inspection of the road has revealed significant damage, requiring immediate attention. The key findings are as follows: - A total of 7 potholes were identified, indicating a high level of deterioration. - The overall road condition has been rated as \"Very Poor\", suggesting a substantial need for repair and maintenance. Recommendations: It is essential that the necessary repairs be undertaken promptly to ensure public safety and prevent further deterioration of the road. A comprehensive maintenance plan should be developed to address the existing damage and prevent future occurrences. This report is submitted for municipal assessment and action.",
+        "condition": "Very Poor",
+        "explanation": "High number of potholes detected.",
+        "score": 21,
+        "damage_summary": {
+            "potholes": 7,
+            "cracks": 0,
+            "surface_erosion": 0
+        },
+        "detected_filename": "pothole_3_detected.jpg"
+    },
+    "image_original": "/media/uploads\\pothole_3.jpg",
+    "image_detected": "/media/detected\\pothole_3_detected.jpg"
+}
