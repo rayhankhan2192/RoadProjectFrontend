@@ -434,23 +434,57 @@ function DetectionPage() {
 
         {/* Results */}
         {result && (
-          <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            <div style={{ textAlign: 'center' }}>
+          <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+            <div style={{ textAlign: 'center', position: 'relative' }}>
+              <div style={{
+                position: 'relative',
+                display: 'inline-block',
+                marginBottom: '20px'
+              }}>
               <h3 className="gradient-text" style={{
-                fontSize: '36px',
-                fontWeight: 'bold',
-                marginBottom: '16px',
-                margin: 0
+                  fontSize: '48px',
+                  fontWeight: '900',
+                  marginBottom: '12px',
+                  margin: 0,
+                  letterSpacing: '-0.02em',
+                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
+                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
               }}>
                 Detection Results
               </h3>
-              <p style={{ color: '#71717a', margin: 0 }}>Comprehensive AI analysis completed</p>
+                <div style={{
+                  position: 'absolute',
+                  bottom: '-12px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '140px',
+                  height: '4px',
+                  background: 'linear-gradient(90deg, transparent, #1e40af, #7c3aed, #0891b2, transparent)',
+                  borderRadius: '2px',
+                  animation: 'pulse 2s ease-in-out infinite'
+                }}></div>
+              </div>
+              <p style={{ 
+                color: '#a1a1aa', 
+                margin: 0, 
+                fontSize: '20px',
+                fontWeight: '400',
+                letterSpacing: '0.01em'
+              }}>
+                Comprehensive AI analysis completed with professional assessment
+              </p>
             </div>
 
             {/* Images Section */}
             <div className="card card-large" style={{
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
+              border: '1px solid rgba(30, 64, 175, 0.2)',
+              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
             }}>
               <div style={{
                 position: 'absolute',
@@ -463,69 +497,108 @@ function DetectionPage() {
               }}></div>
               
               <div style={{
-                padding: '24px 0 32px 0',
+                padding: '32px 0 40px 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
                 marginBottom: '40px',
-                textAlign: 'center'
+                textAlign: 'center',
+                position: 'relative'
               }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '200px',
+                  height: '200px',
+                  background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  filter: 'blur(40px)',
+                  zIndex: -1
+                }}></div>
                 <h4 className="gradient-text" style={{
-                  fontSize: '28px',
-                  fontWeight: '800',
-                  marginBottom: '12px',
+                  fontSize: '32px',
+                  fontWeight: '900',
+                  marginBottom: '16px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 2px 10px rgba(30, 64, 175, 0.3)'
+                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
+                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
                 }}>
                   Analysis Images
                 </h4>
                 <p style={{
-                  fontSize: '16px',
+                  fontSize: '18px',
                   color: '#a1a1aa',
-                  margin: 0
+                  margin: 0,
+                  fontWeight: '400',
+                  letterSpacing: '0.01em'
                 }}>
                   Original image and AI-detected damage visualization
                 </p>
               </div>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-                gap: '32px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))',
+                gap: '40px',
+                padding: '0 20px 20px 20px'
               }}>
                 {result.image_original && (
                   <div className="card" style={{ 
                     textAlign: 'center',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+                    border: '1px solid rgba(30, 64, 175, 0.2)',
+                    boxShadow: '0 12px 40px rgba(30, 64, 175, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}>
                     <div style={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       right: 0,
-                      height: '3px',
+                      height: '4px',
                       background: 'linear-gradient(90deg, #1e40af, #7c3aed)',
                       borderRadius: '12px 12px 0 0'
                     }}></div>
                     
                     <div style={{
-                      padding: '20px 0 16px 0',
+                      padding: '24px 0 20px 0',
                       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                      marginBottom: '20px'
+                      marginBottom: '24px',
+                      position: 'relative'
                     }}>
+                      <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '120px',
+                        height: '120px',
+                        background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                        borderRadius: '50%',
+                        filter: 'blur(20px)',
+                        zIndex: -1
+                      }}></div>
                       <h5 style={{
-                        fontSize: '22px',
-                        fontWeight: '700',
+                        fontSize: '24px',
+                        fontWeight: '800',
                         color: 'white',
-                        marginBottom: '8px',
+                        marginBottom: '12px',
                         margin: 0,
-                        letterSpacing: '-0.01em'
+                        letterSpacing: '-0.01em',
+                        textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
                       }}>
                         Original Image
                       </h5>
                       <p style={{
-                        fontSize: '14px',
+                        fontSize: '16px',
                         color: '#a1a1aa',
-                        margin: 0
+                        margin: 0,
+                        fontWeight: '400'
                       }}>
                         Source road image
                       </p>
@@ -535,43 +608,85 @@ function DetectionPage() {
                       href={`${API_CONFIG.BASE_URL}${result.image_original}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ display: 'block', position: 'relative' }}
+                      style={{ 
+                        display: 'block', 
+                        position: 'relative',
+                        borderRadius: '16px',
+                        overflow: 'hidden',
+                        boxShadow: '0 20px 60px rgba(30, 64, 175, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)',
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-8px)'
+                        e.currentTarget.style.boxShadow = '0 32px 80px rgba(30, 64, 175, 0.3), 0 16px 48px rgba(0, 0, 0, 0.4)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)'
+                        e.currentTarget.style.boxShadow = '0 20px 60px rgba(30, 64, 175, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)'
+                      }}
                     >
                       <img
                         src={`${API_CONFIG.BASE_URL}${result.image_original}`}
                         alt="Original"
                         style={{
                           width: '100%',
-                          height: '320px',
+                          height: '360px',
                           objectFit: 'cover',
-                          borderRadius: '12px',
-                          boxShadow: '0 12px 40px rgba(0, 0, 0, 0.4)',
-                          transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                          filter: 'brightness(0.95) contrast(1.05)'
+                          borderRadius: '16px',
+                          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                          filter: 'brightness(0.95) contrast(1.05) saturate(1.1)'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.transform = 'scale(1.08)'
-                          e.target.style.filter = 'brightness(1) contrast(1.1)'
+                          e.target.style.filter = 'brightness(1.05) contrast(1.1) saturate(1.2)'
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.transform = 'scale(1)'
-                          e.target.style.filter = 'brightness(0.95) contrast(1.05)'
+                          e.target.style.filter = 'brightness(0.95) contrast(1.05) saturate(1.1)'
                         }}
                       />
                       <div style={{
                         position: 'absolute',
-                        top: '12px',
-                        right: '12px',
-                        background: 'rgba(0, 0, 0, 0.7)',
+                        top: '16px',
+                        right: '16px',
+                        background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 58, 237, 0.9))',
                         color: 'white',
-                        padding: '6px 12px',
-                        borderRadius: '20px',
-                        fontSize: '12px',
-                        fontWeight: '600',
-                        backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)'
+                        padding: '8px 16px',
+                        borderRadius: '24px',
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: '0 8px 32px rgba(30, 64, 175, 0.3)',
+                        letterSpacing: '0.01em'
                       }}>
                         📷 Original
+                      </div>
+                      <div style={{
+                        position: 'absolute',
+                        bottom: '16px',
+                        left: '16px',
+                        right: '16px',
+                        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4))',
+                        color: 'white',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        opacity: 0,
+                        transform: 'translateY(20px)',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.opacity = '1'
+                        e.currentTarget.style.transform = 'translateY(0)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = '0'
+                        e.currentTarget.style.transform = 'translateY(20px)'
+                      }}
+                    >
+                      Click to view full size
                       </div>
                     </a>
                   </div>
@@ -580,37 +695,56 @@ function DetectionPage() {
                   <div className="card" style={{ 
                     textAlign: 'center',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
+                    border: '1px solid rgba(124, 58, 237, 0.2)',
+                    boxShadow: '0 12px 40px rgba(124, 58, 237, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}>
                     <div style={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       right: 0,
-                      height: '3px',
+                      height: '4px',
                       background: 'linear-gradient(90deg, #7c3aed, #0891b2)',
                       borderRadius: '12px 12px 0 0'
                     }}></div>
                     
                     <div style={{
-                      padding: '20px 0 16px 0',
+                      padding: '24px 0 20px 0',
                       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                      marginBottom: '20px'
+                      marginBottom: '24px',
+                      position: 'relative'
                     }}>
+                      <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '120px',
+                        height: '120px',
+                        background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)',
+                        borderRadius: '50%',
+                        filter: 'blur(20px)',
+                        zIndex: -1
+                      }}></div>
                       <h5 style={{
-                        fontSize: '22px',
-                        fontWeight: '700',
+                        fontSize: '24px',
+                        fontWeight: '800',
                         color: 'white',
-                        marginBottom: '8px',
+                        marginBottom: '12px',
                         margin: 0,
-                        letterSpacing: '-0.01em'
+                        letterSpacing: '-0.01em',
+                        textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)'
                       }}>
                         Detection Results
                       </h5>
                       <p style={{
-                        fontSize: '14px',
+                        fontSize: '16px',
                         color: '#a1a1aa',
-                        margin: 0
+                        margin: 0,
+                        fontWeight: '400'
                       }}>
                         AI-detected damage areas
                       </p>
@@ -620,43 +754,85 @@ function DetectionPage() {
                       href={`${API_CONFIG.BASE_URL}${result.image_detected}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ display: 'block', position: 'relative' }}
+                      style={{ 
+                        display: 'block', 
+                        position: 'relative',
+                        borderRadius: '16px',
+                        overflow: 'hidden',
+                        boxShadow: '0 20px 60px rgba(124, 58, 237, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)',
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-8px)'
+                        e.currentTarget.style.boxShadow = '0 32px 80px rgba(124, 58, 237, 0.3), 0 16px 48px rgba(0, 0, 0, 0.4)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)'
+                        e.currentTarget.style.boxShadow = '0 20px 60px rgba(124, 58, 237, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3)'
+                      }}
                     >
                       <img
                         src={`${API_CONFIG.BASE_URL}${result.image_detected}`}
                         alt="Detection Results"
                         style={{
                           width: '100%',
-                          height: '320px',
+                          height: '360px',
                           objectFit: 'cover',
-                          borderRadius: '12px',
-                          boxShadow: '0 12px 40px rgba(0, 0, 0, 0.4)',
-                          transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                          filter: 'brightness(0.95) contrast(1.05)'
+                          borderRadius: '16px',
+                          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                          filter: 'brightness(0.95) contrast(1.05) saturate(1.1)'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.transform = 'scale(1.08)'
-                          e.target.style.filter = 'brightness(1) contrast(1.1)'
+                          e.target.style.filter = 'brightness(1.05) contrast(1.1) saturate(1.2)'
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.transform = 'scale(1)'
-                          e.target.style.filter = 'brightness(0.95) contrast(1.05)'
+                          e.target.style.filter = 'brightness(0.95) contrast(1.05) saturate(1.1)'
                         }}
                       />
                       <div style={{
                         position: 'absolute',
-                        top: '12px',
-                        right: '12px',
-                        background: 'rgba(0, 0, 0, 0.7)',
+                        top: '16px',
+                        right: '16px',
+                        background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(8, 145, 178, 0.9))',
                         color: 'white',
-                        padding: '6px 12px',
-                        borderRadius: '20px',
-                        fontSize: '12px',
-                        fontWeight: '600',
-                        backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)'
+                        padding: '8px 16px',
+                        borderRadius: '24px',
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: '0 8px 32px rgba(124, 58, 237, 0.3)',
+                        letterSpacing: '0.01em'
                       }}>
                         🔍 AI Detection
+                      </div>
+                      <div style={{
+                        position: 'absolute',
+                        bottom: '16px',
+                        left: '16px',
+                        right: '16px',
+                        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4))',
+                        color: 'white',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        backdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        opacity: 0,
+                        transform: 'translateY(20px)',
+                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.opacity = '1'
+                        e.currentTarget.style.transform = 'translateY(0)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = '0'
+                        e.currentTarget.style.transform = 'translateY(20px)'
+                      }}
+                    >
+                      Click to view full size
                       </div>
                     </a>
                   </div>
@@ -667,7 +843,10 @@ function DetectionPage() {
             {/* Classification Results */}
             <div className="card card-large" style={{
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
+              border: '1px solid rgba(30, 64, 175, 0.2)',
+              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
             }}>
               <div style={{
                 position: 'absolute',
@@ -680,113 +859,251 @@ function DetectionPage() {
               }}></div>
               
               <div style={{
-                padding: '24px 0 32px 0',
+                padding: '32px 0 40px 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
                 marginBottom: '40px',
-                textAlign: 'center'
+                textAlign: 'center',
+                position: 'relative'
               }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '200px',
+                  height: '200px',
+                  background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  filter: 'blur(40px)',
+                  zIndex: -1
+                }}></div>
                 <h4 className="gradient-text" style={{
-                  fontSize: '28px',
-                  fontWeight: '800',
-                  marginBottom: '12px',
+                  fontSize: '32px',
+                  fontWeight: '900',
+                  marginBottom: '16px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 2px 10px rgba(30, 64, 175, 0.3)'
+                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
+                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
                 }}>
                   AI Classification
                 </h4>
                 <p style={{
-                  fontSize: '16px',
+                  fontSize: '18px',
                   color: '#a1a1aa',
-                  margin: 0
+                  margin: 0,
+                  fontWeight: '400',
+                  letterSpacing: '0.01em'
                 }}>
                   Intelligent damage type identification and confidence scoring
                 </p>
               </div>
               <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '24px',
-                marginBottom: '32px'
+                marginBottom: '40px',
+                padding: '0 20px'
               }}>
+                {/* Damage Type */}
                 <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '24px',
-                  flexWrap: 'wrap',
-                  justifyContent: 'center'
+                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(30, 64, 175, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(30, 64, 175, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.2)'
                 }}>
-                  <div style={{ fontSize: '48px' }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '120px',
+                    height: '120px',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <div style={{ 
+                    fontSize: '48px',
+                    marginBottom: '16px',
+                    filter: 'drop-shadow(0 4px 12px rgba(30, 64, 175, 0.3))',
+                    animation: 'pulse 2s ease-in-out infinite'
+                  }}>
                     {getPredictionIcon(result.prediction?.class)}
                   </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <h5 style={{
+                  <h6 style={{
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    color: '#a1a1aa',
+                    marginBottom: '8px',
+                    margin: 0,
+                    letterSpacing: '0.01em'
+                  }}>
+                    Damage Type
+                  </h6>
+                  <div style={{
                       fontSize: '24px',
-                      fontWeight: 'bold',
+                    fontWeight: '900',
                       color: 'white',
-                      marginBottom: '8px',
-                      margin: 0
+                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)',
+                    letterSpacing: '-0.01em'
                     }}>
                       {result.prediction?.class}
-                    </h5>
-                    <p style={{
-                      color: '#71717a',
-                      margin: 0
-                    }}>
-                      Damage Type
-                    </p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div className="confidence-bar" style={{ marginBottom: '8px' }}>
-                    <div
-                      className="confidence-fill"
-                      style={{
-                        width: `${result.prediction?.confidence}%`,
-                        backgroundColor: getConfidenceColor(result.prediction?.confidence)
-                      }}
-                    ></div>
+                {/* AI Confidence Score */}
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(124, 58, 237, 0.2)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(124, 58, 237, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(124, 58, 237, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.2)'
+                }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '120px',
+                    height: '120px',
+                    background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <div style={{ 
+                    fontSize: '48px',
+                    marginBottom: '16px',
+                    filter: 'drop-shadow(0 4px 12px rgba(124, 58, 237, 0.3))'
+                  }}>
+                    🎯
                   </div>
-                  <span style={{
+                  <h6 style={{
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    color: '#a1a1aa',
+                    marginBottom: '8px',
+                    margin: 0,
+                    letterSpacing: '0.01em'
+                  }}>
+                    AI Confidence
+                  </h6>
+                  <div style={{
                     fontSize: '24px',
-                    fontWeight: 'bold',
-                    color: 'white'
+                    fontWeight: '900',
+                    color: 'white',
+                    textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)',
+                    letterSpacing: '-0.01em'
                   }}>
                     {result.prediction?.confidence?.toFixed(1)}%
-                  </span>
-                  <p style={{
-                    color: '#71717a',
-                    fontSize: '14px',
-                    margin: 0
-                  }}>
-                    Confidence
-                  </p>
                 </div>
               </div>
 
+                {/* Lighting Condition */}
               <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '12px 0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-              }}>
-                <span style={{
-                  fontWeight: '600',
-                  color: '#a1a1aa'
+                  background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(30, 64, 175, 0.08))',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(8, 145, 178, 0.2)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(8, 145, 178, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(8, 145, 178, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(8, 145, 178, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(8, 145, 178, 0.2)'
                 }}>
-                  Lighting Condition:
-                </span>
-                <span style={{ color: 'white' }}>{result.prediction?.lighting}</span>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '120px',
+                    height: '120px',
+                    background: 'radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <div style={{ 
+                    fontSize: '48px',
+                    marginBottom: '16px',
+                    filter: 'drop-shadow(0 4px 12px rgba(8, 145, 178, 0.3))'
+                  }}>
+                    ☀️
+                  </div>
+                  <h6 style={{
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    color: '#a1a1aa',
+                    marginBottom: '8px',
+                    margin: 0,
+                    letterSpacing: '0.01em'
+                  }}>
+                    Lighting Condition
+                  </h6>
+                  <div style={{
+                    fontSize: '24px',
+                    fontWeight: '900',
+                    color: 'white',
+                    textShadow: '0 2px 8px rgba(8, 145, 178, 0.3)',
+                    letterSpacing: '-0.01em'
+                  }}>
+                    {result.prediction?.lighting}
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Road Damage Analysis */}
+            {/* Damage Statistics */}
             <div className="card card-large" style={{
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
+              border: '1px solid rgba(30, 64, 175, 0.2)',
+              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
             }}>
               <div style={{
                 position: 'absolute',
@@ -799,172 +1116,482 @@ function DetectionPage() {
               }}></div>
               
               <div style={{
-                padding: '24px 0 32px 0',
+                padding: '32px 0 40px 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
                 marginBottom: '40px',
-                textAlign: 'center'
+                textAlign: 'center',
+                position: 'relative'
               }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '200px',
+                  height: '200px',
+                  background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  filter: 'blur(40px)',
+                  zIndex: -1
+                }}></div>
                 <h4 className="gradient-text" style={{
-                  fontSize: '28px',
-                  fontWeight: '800',
-                  marginBottom: '12px',
+                  fontSize: '32px',
+                  fontWeight: '900',
+                  marginBottom: '16px',
                   margin: 0,
                   letterSpacing: '-0.01em',
-                  textShadow: '0 2px 10px rgba(30, 64, 175, 0.3)'
+                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
+                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
                 }}>
-                  Road Condition Assessment
+                  Damage Statistics
                 </h4>
                 <p style={{
-                  fontSize: '16px',
+                  fontSize: '18px',
                   color: '#a1a1aa',
-                  margin: 0
+                  margin: 0,
+                  fontWeight: '400',
+                  letterSpacing: '0.01em'
                 }}>
-                  Comprehensive damage analysis and professional assessment
+                  Comprehensive damage analysis and detection summary
                 </p>
               </div>
 
-              {/* Condition Overview */}
               <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                marginBottom: '32px',
-                padding: '24px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                borderRadius: '12px'
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '24px',
+                padding: '0 20px 20px 20px'
               }}>
                 <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px',
-                  flexWrap: 'wrap'
-                }}>
-                  <div
-                    className={`status-badge ${
-                      result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'excellent' ? 'status-excellent' :
-                      result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'good' ? 'status-good' :
-                      result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'fair' ? 'status-fair' :
-                      result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'poor' ? 'status-poor' :
-                      'status-very-poor'
-                    }`}
-                  >
-                    {result.road_damage?.condition}
-                  </div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
+                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+                padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(30, 64, 175, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(30, 64, 175, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.2)'
+              }}>
+                <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '100px',
+                    height: '100px',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <span style={{ 
+                    fontSize: '32px', 
+                    display: 'block',
+                    marginBottom: '12px',
+                    filter: 'drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3))'
+                  }}>🕳️</span>
                   <div style={{
+                    fontSize: '28px',
+                    fontWeight: '900',
+                    color: 'white',
+                    marginBottom: '8px',
+                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                  }}>
+                    {result.road_damage?.damage_summary?.potholes || 0}
+                  </div>
+                  <div style={{
+                    color: '#a1a1aa',
                     fontSize: '14px',
-                    color: '#71717a',
-                    marginBottom: '4px'
+                    fontWeight: '600',
+                    letterSpacing: '0.01em'
                   }}>
-                    Condition Score
+                    Potholes Detected
+                </div>
+                </div>
+                  <div style={{
+                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(30, 64, 175, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(30, 64, 175, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.2)'
+                }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '100px',
+                    height: '100px',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <span style={{ 
+                    fontSize: '32px', 
+                    display: 'block',
+                    marginBottom: '12px',
+                    filter: 'drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3))'
+                  }}>🔧</span>
+                  <div style={{
+                    fontSize: '28px',
+                    fontWeight: '900',
+                    color: 'white',
+                    marginBottom: '8px',
+                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                  }}>
+                    {result.road_damage?.damage_summary?.cracks || 0}
                   </div>
                   <div style={{
-                    fontSize: '36px',
-                    fontWeight: 'bold',
-                    color: 'white'
+                    color: '#a1a1aa',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    letterSpacing: '0.01em'
                   }}>
-                    {result.road_damage?.score}/100
+                    Cracks Found
                   </div>
-                </div>
+                  </div>
+                  <div style={{
+                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  textAlign: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(30, 64, 175, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(30, 64, 175, 0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(30, 64, 175, 0.2)'
+                }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '100px',
+                    height: '100px',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <span style={{ 
+                    fontSize: '32px', 
+                    display: 'block',
+                    marginBottom: '12px',
+                    filter: 'drop-shadow(0 2px 4px rgba(30, 64, 175, 0.3))'
+                  }}>🌊</span>
+                  <div style={{
+                    fontSize: '28px',
+                    fontWeight: '900',
+                    color: 'white',
+                    marginBottom: '8px',
+                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                  }}>
+                    {result.road_damage?.damage_summary?.surface_erosion || 0}
+                  </div>
+                  <div style={{
+                    color: '#a1a1aa',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    letterSpacing: '0.01em'
+                  }}>
+                    Surface Erosion
+                  </div>
+                  </div>
+              </div>
+            </div>
+
+            {/* Assessment & Condition Card */}
+            <div className="card card-large" style={{
+              position: 'relative',
+              overflow: 'hidden',
+              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05))',
+              border: '1px solid rgba(30, 64, 175, 0.2)',
+              boxShadow: '0 20px 60px rgba(30, 64, 175, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '4px',
+                background: 'linear-gradient(90deg, #1e40af, #7c3aed, #0891b2)',
+                borderRadius: '20px 20px 0 0'
+              }}></div>
+              
+              <div style={{
+                padding: '32px 0 40px 0',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                marginBottom: '40px',
+                textAlign: 'center',
+                position: 'relative'
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '200px',
+                  height: '200px',
+                  background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  filter: 'blur(40px)',
+                  zIndex: -1
+                }}></div>
+                <h4 className="gradient-text" style={{
+                  fontSize: '32px',
+                  fontWeight: '900',
+                  marginBottom: '16px',
+                  margin: 0,
+                  letterSpacing: '-0.01em',
+                  textShadow: '0 4px 20px rgba(30, 64, 175, 0.4)',
+                  background: 'linear-gradient(135deg, #1e40af, #7c3aed, #0891b2)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>
+                  Assessment & Condition
+                </h4>
+                <p style={{
+                  fontSize: '18px',
+                  color: '#a1a1aa',
+                  margin: 0,
+                  fontWeight: '400',
+                  letterSpacing: '0.01em'
+                }}>
+                  Professional analysis and road condition evaluation
+                </p>
               </div>
 
-              {/* Assessment Summary */}
-              <div style={{ marginBottom: '32px' }}>
-                <h5 style={{
-                  fontSize: '20px',
-                  fontWeight: '600',
-                  color: 'white',
-                  marginBottom: '16px',
-                  margin: 0
-                }}>
-                  Assessment Summary
-                </h5>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+                gap: '32px',
+                padding: '0 20px 20px 20px'
+              }}>
+                {/* Assessment Summary */}
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
+                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
                   padding: '24px',
-                  borderRadius: '12px',
-                  borderLeft: '4px solid #3b82f6'
+                  borderRadius: '16px',
+                  border: '1px solid rgba(30, 64, 175, 0.2)',
+                  borderLeft: '4px solid #3b82f6',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '120px',
+                    height: '120px',
+                    background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
+                  <h5 style={{
+                    fontSize: '20px',
+                    fontWeight: '700',
+                    color: 'white',
+                    marginBottom: '16px',
+                    margin: 0,
+                    letterSpacing: '-0.01em',
+                    textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                  }}>
+                    Assessment Summary
+                  </h5>
                   <p style={{
                     color: '#a1a1aa',
                     lineHeight: '1.6',
                     fontSize: '16px',
-                    margin: 0
+                    margin: 0,
+                    fontWeight: '400',
+                    letterSpacing: '0.01em'
                   }}>
                     {result.road_damage?.explanation}
                   </p>
                 </div>
-              </div>
 
-              {/* Damage Statistics */}
-              <div style={{ marginBottom: '32px' }}>
-                <h5 style={{
-                  fontSize: '20px',
-                  fontWeight: '600',
-                  color: 'white',
-                  marginBottom: '24px',
-                  margin: 0
-                }}>
-                  Damage Statistics
-                </h5>
-                <div className="stats-grid">
-                  <div className="stat-item">
-                    <span className="stat-icon">🕳️</span>
-                    <div className="stat-content">
-                      <div className="stat-label">Potholes Detected</div>
-                      <div className="stat-value">{result.road_damage?.damage_summary?.potholes || 0}</div>
-                    </div>
-                  </div>
-                  <div className="stat-item">
-                    <span className="stat-icon">🔧</span>
-                    <div className="stat-content">
-                      <div className="stat-label">Cracks Found</div>
-                      <div className="stat-value">{result.road_damage?.damage_summary?.cracks || 0}</div>
-                    </div>
-                  </div>
-                  <div className="stat-item">
-                    <span className="stat-icon">🌊</span>
-                    <div className="stat-content">
-                      <div className="stat-label">Surface Erosion</div>
-                      <div className="stat-value">{result.road_damage?.damage_summary?.surface_erosion || 0}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Professional Report */}
-              {result.road_damage?.report && (
+                {/* Road Condition Assessment */}
                 <div style={{
-                  paddingTop: '32px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                  background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(8, 145, 178, 0.08))',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(124, 58, 237, 0.2)',
+                  borderLeft: '4px solid #0891b2',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '120px',
+                    height: '120px',
+                    background: 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}></div>
                   <h5 style={{
                     fontSize: '20px',
-                    fontWeight: '600',
+                    fontWeight: '700',
                     color: 'white',
-                    marginBottom: '24px',
-                    margin: 0
+                    marginBottom: '16px',
+                    margin: 0,
+                    letterSpacing: '-0.01em',
+                    textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)'
                   }}>
-                    Professional Assessment Report
+                    Road Condition Assessment
                   </h5>
-                  <div className="card" style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    borderLeft: '4px solid #3b82f6'
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '16px',
+                    marginBottom: '16px'
                   }}>
-                    <div style={{
-                      color: '#a1a1aa',
-                      lineHeight: '1.6',
-                      whiteSpace: 'pre-line',
-                      fontSize: '16px',
-                      margin: 0
-                    }}>
-                      {result.road_damage.report}
+                    <div
+                      className={`status-badge ${
+                        result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'excellent' ? 'status-excellent' :
+                        result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'good' ? 'status-good' :
+                        result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'fair' ? 'status-fair' :
+                        result.road_damage?.condition?.toLowerCase().replace(' ', '-') === 'poor' ? 'status-poor' :
+                        'status-very-poor'
+                      }`}
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        padding: '8px 16px',
+                        borderRadius: '16px',
+                        textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
+                        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                    >
+                      {result.road_damage?.condition}
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{
+                        fontSize: '14px',
+                        color: '#a1a1aa',
+                        marginBottom: '4px',
+                        fontWeight: '600',
+                        letterSpacing: '0.01em'
+                      }}>
+                        Condition Score
+                      </div>
+                      <div style={{
+                        fontSize: '20px',
+                        fontWeight: '900',
+                        color: 'white',
+                        textShadow: '0 2px 8px rgba(124, 58, 237, 0.3)',
+                        background: 'linear-gradient(135deg, #7c3aed, #0891b2)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}>
+                        {result.road_damage?.score}/100
+                      </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
+
+
+
+            {/* Professional Report */}
+            {result.road_damage?.report && (
+              <div style={{
+                background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(124, 58, 237, 0.08))',
+                padding: '20px 24px',
+                borderRadius: '12px',
+                border: '1px solid rgba(30, 64, 175, 0.2)',
+                borderLeft: '4px solid #3b82f6',
+                marginBottom: '32px',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '100px',
+                  height: '100px',
+                  background: 'radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}></div>
+                <h5 style={{
+                  fontSize: '18px',
+                  fontWeight: '700',
+                  color: 'white',
+                  marginBottom: '12px',
+                  margin: 0,
+                  letterSpacing: '-0.01em',
+                  textShadow: '0 2px 8px rgba(30, 64, 175, 0.3)'
+                }}>
+                  Professional Assessment Report
+                </h5>
+                <div style={{
+                  color: '#a1a1aa',
+                  lineHeight: '1.6',
+                  whiteSpace: 'pre-line',
+                  fontSize: '16px',
+                  margin: 0,
+                  fontWeight: '400',
+                  letterSpacing: '0.01em'
+                }}>
+                  {result.road_damage.report}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
