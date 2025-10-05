@@ -150,7 +150,7 @@ function LandingPage() {
                   color: 'white',
                   marginBottom: '8px'
                 }}>
-                  99.9%
+                  95%+
                 </div>
                 <div style={{
                   fontSize: '14px',
@@ -611,7 +611,7 @@ function LandingPage() {
               color: 'white',
               margin: 0
             }}>
-              Road Damage AI
+              RodexAI 
             </h3>
           </div>
           

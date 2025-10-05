@@ -45,7 +45,7 @@ function Nav() {
               fontWeight: 'bold',
               margin: 0
             }}>
-              RoadXpertAI
+              RodexAI
             </h1>
             <p style={{
               fontSize: '14px',
@@ -62,14 +62,15 @@ function Nav() {
           <NavLink to="/" currentPath={location.pathname} icon="🏠">
             Home
           </NavLink>
-          <NavLink to="/about" currentPath={location.pathname} icon="ℹ️">
-            About
-          </NavLink>
+          
           <NavLink to="/classification" currentPath={location.pathname} icon="🔍">
             Classification
           </NavLink>
           <NavLink to="/detection" currentPath={location.pathname} icon="📊">
             Detection
+          </NavLink>
+          <NavLink to="/about" currentPath={location.pathname} icon="ℹ️">
+            About
           </NavLink>
         </div>
       </div>

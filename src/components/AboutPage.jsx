@@ -39,7 +39,7 @@ function AboutPage() {
               letterSpacing: '-0.02em',
               textShadow: '0 8px 32px rgba(255, 255, 255, 0.3)'
             }}>
-              RoadXpertAI
+              RodexAI
             </h1>
             <div style={{
               position: 'relative',
@@ -432,7 +432,7 @@ function AboutPage() {
             margin: '0 auto 60px auto',
             lineHeight: '1.6'
           }}>
-            RoadXpertAI leverages state-of-the-art machine learning algorithms and computer vision 
+            RodexAI leverages state-of-the-art machine learning algorithms and computer vision 
             to deliver unprecedented accuracy in road damage detection and analysis.
           </p>
 
@@ -554,7 +554,7 @@ function AboutPage() {
               gap: '12px'
             }}>
               <span>🚀</span>
-              Try RoadXpertAI
+              Try RodexAI
             </Link>
             <Link to="/classification" className="btn btn-secondary" style={{
               minWidth: '220px',
@@ -602,7 +602,7 @@ function AboutPage() {
             margin: '0 auto',
             lineHeight: '1.6'
           }}>
-            RoadXpertAI delivers exceptional results across all damage detection categories
+            RodexAI delivers exceptional results across all damage detection categories
           </p>
         </div>
 
