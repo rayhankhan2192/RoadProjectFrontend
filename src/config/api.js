@@ -1,5 +1,6 @@
 // API Configuration
-const API_BASE_URL = 'http://127.0.0.1:8000'
+//const API_BASE_URL = 'http://127.0.0.1:8000'
+const API_BASE_URL = 'http://203.190.12.138:8001'
 
 export const API_ENDPOINTS = {
   CLASSIFICATION: `${API_BASE_URL}/api/predict-classification`,
